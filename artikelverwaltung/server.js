@@ -83,7 +83,7 @@ app.get('/api/plattformen', (req, res) => {
 
 app.get('/api/anlagenklassen', (req, res) => {
     db.all('SELECT * FROM Anlagenklassen', [], (err, rows) => {
-        if err) return res.status(500).send(err.message);
+        if (err) return res.status(500).send(err.message);
         res.json(rows);
     });
 });
