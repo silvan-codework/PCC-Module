@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>CSS Attribute Editor</h1>
+    <form id="cssForm">
+        <label for="bodyBg">Body Background Color:</label>
+        <input type="color" id="bodyBg" name="bodyBg" value="#f4f4f9"><br>
+        <label for="buttonBg">Button Background Color:</label>
+        <input type="color" id="buttonBg" name="buttonBg" value="#4CAF50"><br>
+        <label for="buttonHoverBg">Button Hover Background Color:</label>
+        <input type="color" id="buttonHoverBg" name="buttonHoverBg" value="#45a049"><br>
+        <button type="button" onclick="updateCSS()">Apply Changes</button>
+    </form>
+    <script>
+        function updateCSS() {
+            const bodyBg = document.getElementById('bodyBg').value;
+            const buttonBg = document.getElementById('buttonBg').value;
+            const buttonHoverBg = document.getElementById('buttonHoverBg').value;
+
+            const styleSheet = document.styleSheets[0];
+            styleSheet.cssRules[0].style.backgroundColor = bodyBg;
+            styleSheet.cssRules[4].style.backgroundColor = buttonBg;
+            styleSheet.cssRules[5].style.backgroundColor = buttonHoverBg;
+        }
+    </script>
+</body>
+</html>
